@@ -1,8 +1,9 @@
+import manager.PhotoManager;
 import manager.UserManager;
+import model.Photo;
 import model.User;
 
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 public class Main {
@@ -27,6 +28,33 @@ public class Main {
 
             allUsers = userManager.getAllUsers();
             for(User theUser : allUsers) System.out.println(theUser);
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        PhotoManager photoManager = new PhotoManager();
+        try {
+            photoManager.addPhoto(new Photo("3","sdsdfds/fdd/dfvdf","ManoukianPhoto"));
+            System.out.println();
+
+            Photo photo = new Photo("5","sdsdfds/fdd/dfvdf/222","ManoukianPhoto2");
+            photoManager.addPhoto(photo);
+            System.out.println(photo);
+            System.out.println();
+
+            List<Photo> allPhotos = photoManager.getAllPhotos();
+            for(Photo thePhoto : allPhotos) System.out.println(thePhoto);
+            photoManager.deletePhotoById(4);
+            System.out.println();
+
+            photoManager.updatePhotoById(2, new Photo("19","aaaaaaa/bbbbbbbbbb","aaaaaManoukian"));
+            System.out.println();
+
+            allPhotos = photoManager.getAllPhotos();
+            for(Photo thePhoto : allPhotos) System.out.println(thePhoto);
 
 
         } catch (SQLException e) {

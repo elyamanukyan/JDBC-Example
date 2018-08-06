@@ -58,13 +58,6 @@ public class UserManager {
         preparedStatement.setString(4, user.getSurname());
         preparedStatement.setInt(5,id);
         preparedStatement.executeUpdate();
-//        ResultSet resultSet = preparedStatement.getGeneratedKeys();
-//        if(resultSet.next()){
-//            id = resultSet.getInt(1);
-//            user.setId(id);
-//        }
-
-
     }
 
     public void deleteUserById(int id) throws SQLException {
